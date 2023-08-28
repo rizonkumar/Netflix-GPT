@@ -1,8 +1,27 @@
 import Header from "./Header";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { checkValidData } from "../utils/validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handleButtonClick = () => {
+    // Validate the form data
+
+    // console.log(email.current.value);
+    // console.log(password.current.value);
+
+    const message = checkValidData(email.current.value, password.current.value);
+    setErrorMessage(message);
+    // console.log(message);
+
+    // Sign In/ Sign Up when the form is validate
+
+  };
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm); // toggle feature true/false
@@ -18,7 +37,10 @@ const Login = () => {
           alt="bg-img"
         />
       </div>
-      <form className="w-[350px] p-12 bg-black text-white rounded-lg relative z-10">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="w-[350px] p-12 bg-black text-white rounded-lg relative z-10"
+      >
         <h1 className="font-semibold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
@@ -31,18 +53,27 @@ const Login = () => {
         )}
         <input
           type="text"
+          ref={email}
           placeholder="Email Address"
           className="p-4 my-4 w-full bg-gray-700 placeholder-gray-400"
         />
         <input
           type="password"
+          ref={password}
           placeholder="Password"
           className="p-4 my-4 w-full bg-gray-700 placeholder-gray-400"
         />
-        <button className="p-4 my-6 bg-red-700 w-full rounded-lg font-bold">
+        <p className="text-red-500 font-semibold text-lg py-1">{errorMessage}</p>
+        <button
+          className="p-4 my-6 bg-red-700 w-full rounded-lg font-bold"
+          onClick={handleButtonClick}
+        >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-4 cursor-pointer font-semibold" onClick={toggleSignInForm}>
+        <p
+          className="py-4 cursor-pointer font-semibold"
+          onClick={toggleSignInForm}
+        >
           {isSignInForm
             ? "New to Netflix? Sign up now."
             : "Already registered? Sign In Now."}
