@@ -6,21 +6,19 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    // Validate the form data
-
-    // console.log(email.current.value);
-    // console.log(password.current.value);
-
-    const message = checkValidData(email.current.value, password.current.value);
+    const message = checkValidData(
+      isSignInForm ? "" : name.current.value,
+      email.current.value,
+      password.current.value
+    );
     setErrorMessage(message);
-    // console.log(message);
 
     // Sign In/ Sign Up when the form is validate
-
   };
 
   const toggleSignInForm = () => {
@@ -47,6 +45,7 @@ const Login = () => {
         {!isSignInForm && (
           <input
             type="text"
+            ref={name}
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700 placeholder-gray-400"
           />
@@ -63,7 +62,9 @@ const Login = () => {
           placeholder="Password"
           className="p-4 my-4 w-full bg-gray-700 placeholder-gray-400"
         />
-        <p className="text-red-500 font-semibold text-lg py-1">{errorMessage}</p>
+        <p className="text-red-500 font-semibold text-lg py-1">
+          {errorMessage}
+        </p>
         <button
           className="p-4 my-6 bg-red-700 w-full rounded-lg font-bold"
           onClick={handleButtonClick}

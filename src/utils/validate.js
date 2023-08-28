@@ -1,5 +1,9 @@
-export const checkValidData = (email, password) => {
+export const checkValidData = (name, email, password) => {
     const validationRules = [
+      {
+        isValid: /^[a-zA-Z\s]+$/.test(name), // Only letters and spaces allowed
+        errorMessage: "Name is not valid",
+      },
       {
         isValid: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(email),
         errorMessage: "Email Id is not valid",
