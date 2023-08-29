@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { signOut } from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const user = useSelector((store) => store.user);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -14,13 +17,31 @@ const Header = () => {
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+  }, []);
 
   return (
     <div className="fixed top-0 left-0 w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between items-center">
