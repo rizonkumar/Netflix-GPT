@@ -30,6 +30,7 @@
 - Fetch data for trailer video
 - Update store with trailer video data
 - Embedded the YT video and it autoplay and mute
+- Build secondary component
 
 # Features
 
