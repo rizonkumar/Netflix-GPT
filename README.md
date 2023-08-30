@@ -22,6 +22,14 @@
   - Unsubscribed to the onAuthStateChange callback
 - Register TMDB API & create an app & get access token
 - Get Data from TMDB now playing movies list API.
+- Add Hook in Login.js Reduce the no of line (pending)
+- Fix the headeer in one position (pending)
+- Custom hook for now playing movies
+- Create moveSLice
+- Update store with movies data
+- Fetch data for trailer video
+- Update store with trailer video data
+- Embedded the YT video and it autoplay and mute
 
 # Features
 
