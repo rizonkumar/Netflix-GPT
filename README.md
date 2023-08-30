@@ -20,6 +20,8 @@
   - Sign Up user displayName & profile picture update
   - if the user is not logged in Redirect / browse to Login page & Vice-versa
   - Unsubscribed to the onAuthStateChange callback
+- Register TMDB API & create an app & get access token
+- Get Data from TMDB now playing movies list API.
 
 # Features
 
