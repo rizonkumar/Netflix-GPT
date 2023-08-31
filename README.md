@@ -1,53 +1,58 @@
 # Netflix GPT
 
-- Create React App
-- Configured TailwindCSS
-- Header
-- Routing of App
-- Login Form
-- Sign Up Form
-- Form Validation
-- useRef Hook
-- Add the show/hide password (Pending)
-- Firebase Setup
-- Deploying the app to production
-- Create SignUp User Account
-- Implement Sign In User API
-- Created Redux Store with userSlice
-- Implemented Sign Out
-- Update Profile
-- BugFix:
-  - Sign Up user displayName & profile picture update
-  - if the user is not logged in Redirect / browse to Login page & Vice-versa
-  - Unsubscribed to the onAuthStateChange callback
-- Register TMDB API & create an app & get access token
-- Get Data from TMDB now playing movies list API.
-- Add Hook in Login.js Reduce the no of line (pending)
-- Fix the headeer in one position (pending)
-- Custom hook for now playing movies
-- Create moveSLice
-- Update store with movies data
-- Fetch data for trailer video
-- Update store with trailer video data
-- Embedded the YT video and it autoplay and mute
-- Build secondary component
+This project is a Netflix-inspired web application built using React and other technologies. It aims to showcase various features while utilizing TMDB APIs for movie data.
 
-# Features
+## Features
 
-- Login/Sign Up Page
+- **Login/Sign Up Page**
 
-  - SignIn & SignUp Page
-  - redirect to Browse Page
+  - Sign In & Sign Up functionality
+  - Redirect to the Browse Page after successful login
 
-- Browse Page (when the user is loggedIN)
+- **Browse Page (Accessible when the user is logged in)**
 
-  - Header
-  - Main movie
-    - Tailer in Background
-    - Title & Description
-    - Movie Suggestion
-      - MovieLists
+  - Fixed header
+  - Main movie section
+    - Background trailer video
+    - Title & Description of the selected movie
+    - Movie Suggestions section
+      - List of recommended movies
 
-- NetflixGPT
-  - Search Bar
-  - Movie Suggestions
+- **NetflixGPT Component**
+  - Search Bar for finding movies
+  - Movie Suggestions based on user preferences
+
+## Development Progress
+
+- Created a React application using Create React App
+- Configured TailwindCSS for styling
+- Implemented header and routing within the app
+- Developed Login and Sign Up forms with form validation
+- Utilized the useRef Hook for managing form inputs
+- Set up Firebase for user authentication
+- Deployed the app to production environment
+- Enabled user account creation and management
+- Integrated Redux store with userSlice for state management
+- Implemented user sign out functionality
+- Added profile update feature
+- Fixed bugs related to user sign up and redirection
+- Created TMDB API account, obtained access token
+- Fetched data from TMDB API for currently playing movies
+- Improved code in Login.js using custom hooks
+- Fixed header positioning
+- Developed custom hook for managing now playing movies
+- Created movieSlice for Redux store
+- Fetched and stored movies data and trailer video details
+- Embedded autoplaying and muted YouTube trailer videos
+- Designed secondary components: movie list and movie card
+- Utilized TMDB Image CDN URL for movie images
+- Utilized hooks for managing movie sections
+
+## To-Do (Pending)
+
+- Implement show/hide password functionality
+- Reduce line count in Login.js using hooks
+- Fix header position
+- Improve hook in movie sections
+
+Feel free to contribute, suggest improvements, or use this project as a reference for your own creations.
