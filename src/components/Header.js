@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toogleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -16,12 +17,19 @@ const Header = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
+  };
+
+  const hangleGPTSearchClick = () => {
+    // Toggle GPT Search
+    dispatch(toogleGPTSearchView());
   };
 
   useEffect(() => {
@@ -48,12 +56,21 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between items-center">
-      <img
-        className="w-44 cursor-pointer"
-        src={LOGO}
-        alt="netflix-logo"
-        onClick={toggleDropdown}
-      />
+      <div className="flex items-center space-x-4">
+        {" "}
+        <button
+          className="py-2 px-4 bg-purple-800 text-white rounded-md"
+          onClick={hangleGPTSearchClick}
+        >
+          {showGPTSearch ? "Home Page" : "GPT Search"}
+        </button>
+        <img
+          className="w-44 cursor-pointer"
+          src={LOGO}
+          alt="netflix-logo"
+          onClick={toggleDropdown}
+        />
+      </div>
       <div className="relative">
         {user && (
           <img
