@@ -47,12 +47,11 @@ This project is a Netflix-inspired web application built using React and other t
 - Designed secondary components: movie list and movie card
 - Utilized TMDB Image CDN URL for movie images
 - Utilized hooks for managing movie sections
+- GPT Search Page, Bar.
 
 ## To-Do (Pending)
 
 - Implement show/hide password functionality
 - Reduce line count in Login.js using hooks
-- Fix header position
-- Improve hook in movie sections
 
 Feel free to contribute, suggest improvements, or use this project as a reference for your own creations.
