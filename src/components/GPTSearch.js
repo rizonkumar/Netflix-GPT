@@ -4,7 +4,7 @@ import { APP_BACKGROUND } from "../utils/constants";
 
 const GPTSearch = () => {
   return (
-    <div>
+    <div className="">
       <div className="fixed -z-10">
         <img
           className="w-full h-full object-cover"

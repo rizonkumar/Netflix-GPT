@@ -55,7 +55,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between items-center">
+    <div className="absolute w-screen top-0 left-0 px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between items-center">
       <div className="flex items-center space-x-4">
         {" "}
         <button
@@ -65,7 +65,7 @@ const Header = () => {
           {showGPTSearch ? "Home Page" : "GPT Search"}
         </button>
         <img
-          className="w-44 cursor-pointer"
+          className="w-44 cursor-pointer mx-auto md:mx-0"
           src={LOGO}
           alt="netflix-logo"
           onClick={toggleDropdown}

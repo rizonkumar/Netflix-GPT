@@ -48,6 +48,9 @@ This project is a Netflix-inspired web application built using React and other t
 - Utilized TMDB Image CDN URL for movie images
 - Utilized hooks for managing movie sections
 - GPT Search Page, Bar.
+- Open AI API key
+- Fetch GPT Movie suggestion from TMDB
+- Memoization
 
 ## To-Do (Pending)
 
