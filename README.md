@@ -1,6 +1,9 @@
 # Netflix GPT
 
-This project is a Netflix-inspired web application built using React and other technologies. It aims to showcase various features while utilizing TMDB APIs for movie data.
+This project is a Netflix-inspired web application built using React, Redux, Tailwind CSS & OPENAI. It aims to showcase various features while utilizing TMDB APIs for movie data.
+
+# Link: 
+[NetFlixGPT](https://netflixgpt-rizon.netlify.app/)
 
 ## Features
 
